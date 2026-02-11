@@ -44,4 +44,27 @@ class DispatcherTest {
          receivedEvents.map { it.i }
       )
    }
+
+   @Test
+   fun dispatch_subtypeEvent() {
+      abstract class EventImpl : Event
+      data class EventA(val i: Int) : EventImpl()
+      data class EventB(val s: String) : EventImpl()
+
+      val receivedEvents = mutableListOf<EventImpl>()
+
+      val dispatcher = Dispatcher<EventImpl> { event ->
+         receivedEvents += event
+      }
+
+      dispatcher(EventA(0))
+
+      val subtypeDispatcher: Dispatcher<EventB> = dispatcher
+      subtypeDispatcher(EventB("1"))
+
+      assertEquals(
+         listOf(EventA(0), EventB("1")),
+         receivedEvents
+      )
+   }
 }
