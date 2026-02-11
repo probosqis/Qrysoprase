@@ -16,10 +16,6 @@
 
 package com.wcaokaze.probosqis.qrysoprase
 
-class Dispatcher<E : Event>(
-   private val listener: EventListener<E>
-) {
-   operator fun invoke(event: E) {
-      listener.onEvent(event)
-   }
+fun interface EventListener<E : Event> {
+   fun onEvent(event: E)
 }
