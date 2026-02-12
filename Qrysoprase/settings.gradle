@@ -24,6 +24,7 @@ dependencyResolutionManagement {
    repositoriesMode.set(RepositoriesMode.PREFER_PROJECT)
    repositories {
       mavenCentral()
+      google()
    }
 
    versionCatalogs {
@@ -34,6 +35,8 @@ dependencyResolutionManagement {
          plugin('kotlin-multiplatform', 'org.jetbrains.kotlin.multiplatform').versionRef('kotlin')
          plugin('compose-jb', 'org.jetbrains.compose').versionRef('compose-jb')
          plugin('compose-compiler', 'org.jetbrains.kotlin.plugin.compose').versionRef('kotlin')
+
+         library('compose-runtime', 'org.jetbrains.compose.runtime', 'runtime').versionRef('compose-jb')
 
          library('kotlin-test-junit', 'org.jetbrains.kotlin', 'kotlin-test-junit').versionRef('kotlin')
       }
