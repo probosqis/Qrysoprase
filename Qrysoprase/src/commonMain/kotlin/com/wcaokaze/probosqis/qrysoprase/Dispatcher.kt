@@ -16,6 +16,9 @@
 
 package com.wcaokaze.probosqis.qrysoprase
 
+import androidx.compose.runtime.Stable
+
+@Stable
 class Dispatcher<in E : Event>(
    private val listener: EventListener<E>
 ) {
