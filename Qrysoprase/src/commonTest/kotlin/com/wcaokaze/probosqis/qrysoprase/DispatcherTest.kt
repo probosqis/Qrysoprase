@@ -27,7 +27,7 @@ class DispatcherTest {
 
       val receivedEvents = mutableListOf<EventImpl>()
 
-      val dispatcher = Dispatcher<EventImpl> { event ->
+      val dispatcher = Dispatcher { event: EventImpl ->
          receivedEvents += event
       }
 
@@ -53,7 +53,7 @@ class DispatcherTest {
 
       val receivedEvents = mutableListOf<EventImpl>()
 
-      val dispatcher = Dispatcher<EventImpl> { event ->
+      val dispatcher = Dispatcher { event: EventImpl ->
          receivedEvents += event
       }
 
