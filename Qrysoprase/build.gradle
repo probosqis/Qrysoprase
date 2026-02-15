@@ -33,7 +33,7 @@ kotlin {
 
    sourceSets {
       commonMain.dependencies {
-         implementation libs.compose.runtime
+         implementation compose.runtime
       }
 
       commonTest.dependencies {
