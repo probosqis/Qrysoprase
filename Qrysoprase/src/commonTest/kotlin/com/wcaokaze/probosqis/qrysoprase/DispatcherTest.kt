@@ -31,13 +31,13 @@ class DispatcherTest {
          receivedEvents += event
       }
 
-      dispatcher(EventImpl(1))
-      dispatcher(EventImpl(1))
-      dispatcher(EventImpl(2))
-      dispatcher(EventImpl(3))
-      dispatcher(EventImpl(5))
-      dispatcher(EventImpl(8))
-      dispatcher(EventImpl(13))
+      dispatcher { EventImpl(1)  }
+      dispatcher { EventImpl(1)  }
+      dispatcher { EventImpl(2)  }
+      dispatcher { EventImpl(3)  }
+      dispatcher { EventImpl(5)  }
+      dispatcher { EventImpl(8)  }
+      dispatcher { EventImpl(13) }
 
       assertEquals(
          listOf(1, 1, 2, 3, 5, 8, 13),
@@ -57,10 +57,10 @@ class DispatcherTest {
          receivedEvents += event
       }
 
-      dispatcher(EventA(0))
+      dispatcher { EventA(0) }
 
       val subtypeDispatcher: Dispatcher<EventB> = dispatcher
-      subtypeDispatcher(EventB("1"))
+      subtypeDispatcher { EventB("1") }
 
       assertEquals(
          listOf(EventA(0), EventB("1")),

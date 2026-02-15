@@ -24,7 +24,8 @@ import androidx.compose.runtime.remember
 class Dispatcher<in E : Event>(
    private val listener: EventListener<E>
 ) {
-   operator fun invoke(event: E) {
+   operator fun invoke(eventConstructor: () -> E) {
+      val event = eventConstructor()
       listener.onEvent(event)
    }
 }
