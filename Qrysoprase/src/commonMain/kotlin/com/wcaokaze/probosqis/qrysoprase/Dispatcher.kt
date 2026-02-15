@@ -21,10 +21,16 @@ import androidx.compose.runtime.Stable
 import androidx.compose.runtime.remember
 
 @Stable
-class Dispatcher<in E : Event>(
-   private val listener: EventListener<E>
-) {
-   operator fun invoke(eventConstructor: () -> E) {
+abstract class Dispatcher<in E : Event>
+   internal constructor()
+{
+   abstract operator fun invoke(eventConstructor: () -> E)
+}
+
+fun <E : Event> Dispatcher(
+   listener: EventListener<E>
+) = object : Dispatcher<E>() {
+   override fun invoke(eventConstructor: () -> E) {
       val event = eventConstructor()
       listener.onEvent(event)
    }
