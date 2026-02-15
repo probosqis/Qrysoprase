@@ -36,7 +36,7 @@ class DispatcherComposeTest {
    fun rememberDispatcher_noCapture_remembered() {
       class EventImpl : Event
 
-      lateinit var dispatcher: Dispatcher<EventImpl>
+      lateinit var dispatcher: Dispatcher<() -> EventImpl>
 
       var recompositionTrigger by mutableIntStateOf(0)
       var compositionCount by mutableIntStateOf(0)
@@ -68,7 +68,7 @@ class DispatcherComposeTest {
    fun rememberDispatcher_captured_recreated() {
       class EventImpl : Event
 
-      lateinit var dispatcher: Dispatcher<EventImpl>
+      lateinit var dispatcher: Dispatcher<() -> EventImpl>
 
       var recompositionTrigger by mutableIntStateOf(0)
       var compositionCount by mutableIntStateOf(0)
@@ -102,7 +102,7 @@ class DispatcherComposeTest {
    fun rememberDispatcher_capturedButValueNotChanged_intrinsicRemember() {
       class EventImpl : Event
 
-      lateinit var dispatcher: Dispatcher<EventImpl>
+      lateinit var dispatcher: Dispatcher<() -> EventImpl>
 
       var recompositionTrigger by mutableIntStateOf(0)
       var compositionCount by mutableIntStateOf(0)
@@ -134,7 +134,7 @@ class DispatcherComposeTest {
    fun rememberDispatcher_capturedButState_intrinsicRemember() {
       class EventImpl : Event
 
-      lateinit var dispatcher: Dispatcher<EventImpl>
+      lateinit var dispatcher: Dispatcher<() -> EventImpl>
 
       var recompositionTrigger by mutableIntStateOf(0)
       var compositionCount by mutableIntStateOf(0)

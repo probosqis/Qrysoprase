@@ -59,7 +59,7 @@ class DispatcherTest {
 
       dispatcher { EventA(0) }
 
-      val subtypeDispatcher: Dispatcher<EventB> = dispatcher
+      val subtypeDispatcher: Dispatcher<() -> EventB> = dispatcher
       subtypeDispatcher { EventB("1") }
 
       assertEquals(
