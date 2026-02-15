@@ -16,10 +16,15 @@
 
 plugins {
    alias libs.plugins.kotlin.multiplatform
+   alias libs.plugins.android.library
+   alias libs.plugins.compose.jb
+   alias libs.plugins.compose.compiler
 }
 
 kotlin {
-   jvm()
+   androidTarget()
+   jvm('desktop')
+
    jvmToolchain(17)
 
    compilerOptions {
@@ -28,16 +33,32 @@ kotlin {
 
    sourceSets {
       commonMain.dependencies {
+         implementation compose.runtime
       }
 
       commonTest.dependencies {
          implementation libs.kotlin.test.junit
+         implementation compose.uiTestJUnit4
       }
 
-      jvmMain.dependencies {
+      androidMain.dependencies {
       }
 
-      jvmTest.dependencies {
+      androidTest.dependencies {
+      }
+
+      desktopMain.dependencies {
+      }
+
+      desktopTest.dependencies {
+         implementation compose.desktop.currentOs
+         implementation compose.material3
       }
    }
+}
+
+android {
+   namespace 'com.wcaokaze.probosqis.qrysoprase'
+
+   compileSdk 35
 }

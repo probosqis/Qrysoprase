@@ -17,6 +17,7 @@
 pluginManagement {
    repositories {
       mavenCentral()
+      google()
    }
 }
 
@@ -24,13 +25,19 @@ dependencyResolutionManagement {
    repositoriesMode.set(RepositoriesMode.PREFER_PROJECT)
    repositories {
       mavenCentral()
+      google()
    }
 
    versionCatalogs {
       libs {
          version('kotlin', '2.1.10')
+         version('android-plugin', '8.7.0')
+         version('compose-jb', '1.7.3')
 
          plugin('kotlin-multiplatform', 'org.jetbrains.kotlin.multiplatform').versionRef('kotlin')
+         plugin('android-library', 'com.android.library').versionRef('android-plugin')
+         plugin('compose-jb', 'org.jetbrains.compose').versionRef('compose-jb')
+         plugin('compose-compiler', 'org.jetbrains.kotlin.plugin.compose').versionRef('kotlin')
 
          library('kotlin-test-junit', 'org.jetbrains.kotlin', 'kotlin-test-junit').versionRef('kotlin')
       }
