@@ -16,6 +16,9 @@
 
 package com.wcaokaze.probosqis.qrysoprase
 
+import androidx.compose.runtime.Stable
+
+@Stable
 fun interface EventListener<E : Event> {
    fun onEvent(event: E)
 }

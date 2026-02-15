@@ -16,7 +16,9 @@
 
 package com.wcaokaze.probosqis.qrysoprase
 
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
+import androidx.compose.runtime.remember
 
 @Stable
 class Dispatcher<in E : Event>(
@@ -24,5 +26,12 @@ class Dispatcher<in E : Event>(
 ) {
    operator fun invoke(event: E) {
       listener.onEvent(event)
+   }
+}
+
+@Composable
+fun <E : Event> rememberDispatcher(listener: EventListener<E>): Dispatcher<E> {
+   return remember(listener) {
+      Dispatcher(listener)
    }
 }
