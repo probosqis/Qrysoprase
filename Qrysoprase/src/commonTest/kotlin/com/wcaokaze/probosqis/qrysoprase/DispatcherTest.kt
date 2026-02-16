@@ -67,4 +67,28 @@ class DispatcherTest {
          receivedEvents
       )
    }
+
+   @Test
+   fun dispatch_withArg() {
+      data class EventImpl(val i: Int) : Event
+
+      val receivedEvents = mutableListOf<EventImpl>()
+
+      val dispatcher = Dispatcher { event: EventImpl ->
+         receivedEvents += event
+      }
+
+      dispatcher(::EventImpl, 1)
+      dispatcher(::EventImpl, 1)
+      dispatcher(::EventImpl, 2)
+      dispatcher(::EventImpl, 3)
+      dispatcher(::EventImpl, 5)
+      dispatcher(::EventImpl, 8)
+      dispatcher(::EventImpl, 13)
+
+      assertEquals(
+         listOf(1, 1, 2, 3, 5, 8, 13),
+         receivedEvents.map { it.i }
+      )
+   }
 }
