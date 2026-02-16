@@ -125,14 +125,3 @@ fun <E : Event, C : () -> E> rememberDispatcher(
       Dispatcher(listener)
    }
 }
-
-operator fun <E : Event, A1> Dispatcher<() -> E>.invoke(
-   eventConstructor: (A1) -> E,
-   arg1: A1
-) {
-   val constructor = fun (): E {
-      return eventConstructor(arg1)
-   }
-
-   invoke(constructor)
-}
