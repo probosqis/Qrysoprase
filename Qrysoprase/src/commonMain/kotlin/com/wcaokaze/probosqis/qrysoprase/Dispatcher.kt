@@ -27,16 +27,6 @@ abstract class Dispatcher<in C : Function<Event>>
    abstract operator fun invoke(eventConstructor: C)
 }
 
-private inline fun <C : Function<Event>> Dispatcher(
-   crossinline dispatcher: (eventConstructor: C) -> Unit
-): Dispatcher<C> {
-   return object : Dispatcher<C>() {
-      override fun invoke(eventConstructor: C) {
-         dispatcher(eventConstructor)
-      }
-   }
-}
-
 /**
  * イベント受信時に指定された[listener]を実行するDispatcherを作成する。
  *
@@ -75,9 +65,11 @@ private inline fun <C : Function<Event>> Dispatcher(
  */
 fun <E : Event, C : () -> E> Dispatcher(
    listener: EventListener<E>
-) = Dispatcher<C> { eventConstructor ->
-   val event = eventConstructor()
-   listener.onEvent(event)
+): Dispatcher<C> = object : Dispatcher<C>() {
+   override fun invoke(eventConstructor: C) {
+      val event = eventConstructor()
+      listener.onEvent(event)
+   }
 }
 
 /**
