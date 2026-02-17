@@ -25,3 +25,12 @@ private inline fun <C : Function<Event>> Dispatcher(
       }
    }
 }
+
+fun <E : Event, C1> Dispatcher<() -> E>.addContextualEventArgs(
+   context1: C1
+): Dispatcher<(C1) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { eventConstructor(context1) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
