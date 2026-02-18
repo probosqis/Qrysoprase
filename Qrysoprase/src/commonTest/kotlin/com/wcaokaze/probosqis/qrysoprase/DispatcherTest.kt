@@ -113,4 +113,35 @@ class DispatcherTest {
          receivedEvents.map { it.i }
       )
    }
+
+   @Test
+   fun contextualEventArgs_contextualEventArgsBlock() {
+      data class EventImpl(val i: Int) : Event
+
+      val receivedEvents = mutableListOf<EventImpl>()
+
+      val dispatcher = Dispatcher { event: EventImpl ->
+         receivedEvents += event
+      }
+
+      context(dispatcher: Dispatcher<(Int) -> EventImpl>)
+      fun dispatchEventImpl() {
+         dispatcher(::EventImpl)
+      }
+
+      context(dispatcher) {
+         contextualEventArgs(0) {
+            dispatchEventImpl()
+         }
+
+         contextualEventArgs(1) {
+            dispatchEventImpl()
+         }
+      }
+
+      assertEquals(
+         listOf(0, 1),
+         receivedEvents.map { it.i }
+      )
+   }
 }

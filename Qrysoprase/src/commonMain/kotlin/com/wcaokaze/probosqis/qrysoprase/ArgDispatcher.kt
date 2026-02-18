@@ -34,3 +34,13 @@ fun <E : Event, C1> Dispatcher<() -> E>.addContextualEventArgs(
       this@addContextualEventArgs(partialAppliedConstructor)
    }
 }
+
+context(parent: Dispatcher<() -> E>)
+inline fun <E : Event, R, C1> contextualEventArgs(
+   context1: C1,
+   block: context(Dispatcher<(C1) -> E>) () -> R
+): R {
+   return context(parent.addContextualEventArgs(context1)) {
+      block()
+   }
+}
