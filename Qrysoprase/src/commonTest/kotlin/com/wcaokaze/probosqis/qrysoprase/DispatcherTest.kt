@@ -144,4 +144,71 @@ class DispatcherTest {
          receivedEvents.map { it.i }
       )
    }
+
+   @Test
+   fun contextualEventArgs_contextualEventArgsExtensionFunction() {
+      data class EventImpl(val i: Int) : Event
+
+      val receivedEvents = mutableListOf<EventImpl>()
+
+      val dispatcher = Dispatcher { event: EventImpl ->
+         receivedEvents += event
+      }
+
+      context(dispatcher: Dispatcher<(Int) -> EventImpl>)
+      fun dispatchEventImpl() {
+         dispatcher(::EventImpl)
+      }
+
+      dispatcher.contextualEventArgs(0) {
+         dispatchEventImpl()
+      }
+
+      dispatcher.contextualEventArgs(1) {
+         dispatchEventImpl()
+      }
+
+      assertEquals(
+         listOf(0, 1),
+         receivedEvents.map { it.i }
+      )
+   }
+
+   @Test
+   fun contextualEventArgs_variousEventTypes() {
+      data class IntEvent(val i: Int) : Event
+      data class StringEvent(val s: String) : Event
+
+      val receivedIntEvents    = mutableListOf<IntEvent>()
+      val receivedStringEvents = mutableListOf<StringEvent>()
+
+      val intDispatcher = Dispatcher { event: IntEvent ->
+         receivedIntEvents += event
+      }
+
+      val stringDispatcher = Dispatcher { event: StringEvent ->
+         receivedStringEvents += event
+      }
+
+      context(dispatcher: Dispatcher<(Int) -> IntEvent>)
+      fun dispatchIntEvent() {
+         dispatcher(::IntEvent)
+      }
+
+      context(dispatcher: Dispatcher<(String) -> StringEvent>)
+      fun dispatchStringEvent() {
+         dispatcher(::StringEvent)
+      }
+
+      intDispatcher.contextualEventArgs(0) {
+         dispatchIntEvent()
+      }
+
+      stringDispatcher.contextualEventArgs("0") {
+         dispatchStringEvent()
+      }
+
+      assertEquals(listOf(IntEvent   (0)),   receivedIntEvents)
+      assertEquals(listOf(StringEvent("0")), receivedStringEvents)
+   }
 }

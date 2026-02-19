@@ -44,3 +44,13 @@ inline fun <E : Event, R, C1> contextualEventArgs(
       block()
    }
 }
+
+@JvmName("contextualEventArgsExtension")
+inline fun <E : Event, R, C1> Dispatcher<() -> E>.contextualEventArgs(
+   context1: C1,
+   block: context(Dispatcher<(C1) -> E>) () -> R
+): R {
+   return context(addContextualEventArgs(context1)) {
+      block()
+   }
+}
