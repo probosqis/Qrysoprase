@@ -206,6 +206,1716 @@ fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15
    }
 }
 
+fun <E : Event, C1, C2> Dispatcher<(C1) -> E>.addContextualEventArgs(
+   context2: C2
+): Dispatcher<(C1, C2) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1 -> eventConstructor(context1, context2) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3> Dispatcher<(C1) -> E>.addContextualEventArgs(
+   context2: C2, context3: C3
+): Dispatcher<(C1, C2, C3) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1 -> eventConstructor(context1, context2, context3) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4> Dispatcher<(C1) -> E>.addContextualEventArgs(
+   context2: C2, context3: C3, context4: C4
+): Dispatcher<(C1, C2, C3, C4) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1 -> eventConstructor(context1, context2, context3, context4) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5> Dispatcher<(C1) -> E>.addContextualEventArgs(
+   context2: C2, context3: C3, context4: C4, context5: C5
+): Dispatcher<(C1, C2, C3, C4, C5) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1 -> eventConstructor(context1, context2, context3, context4, context5) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6> Dispatcher<(C1) -> E>.addContextualEventArgs(
+   context2: C2, context3: C3, context4: C4, context5: C5, context6: C6
+): Dispatcher<(C1, C2, C3, C4, C5, C6) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1 -> eventConstructor(context1, context2, context3, context4, context5, context6) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7> Dispatcher<(C1) -> E>.addContextualEventArgs(
+   context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8> Dispatcher<(C1) -> E>.addContextualEventArgs(
+   context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9> Dispatcher<(C1) -> E>.addContextualEventArgs(
+   context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10> Dispatcher<(C1) -> E>.addContextualEventArgs(
+   context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11> Dispatcher<(C1) -> E>.addContextualEventArgs(
+   context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12> Dispatcher<(C1) -> E>.addContextualEventArgs(
+   context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13> Dispatcher<(C1) -> E>.addContextualEventArgs(
+   context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14> Dispatcher<(C1) -> E>.addContextualEventArgs(
+   context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15> Dispatcher<(C1) -> E>.addContextualEventArgs(
+   context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16> Dispatcher<(C1) -> E>.addContextualEventArgs(
+   context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17> Dispatcher<(C1) -> E>.addContextualEventArgs(
+   context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18> Dispatcher<(C1) -> E>.addContextualEventArgs(
+   context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17, context18: C18
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19> Dispatcher<(C1) -> E>.addContextualEventArgs(
+   context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17, context18: C18, context19: C19
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18, context19) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20> Dispatcher<(C1) -> E>.addContextualEventArgs(
+   context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17, context18: C18, context19: C19, context20: C20
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18, context19, context20) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3> Dispatcher<(C1, C2) -> E>.addContextualEventArgs(
+   context3: C3
+): Dispatcher<(C1, C2, C3) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2 -> eventConstructor(context1, context2, context3) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4> Dispatcher<(C1, C2) -> E>.addContextualEventArgs(
+   context3: C3, context4: C4
+): Dispatcher<(C1, C2, C3, C4) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2 -> eventConstructor(context1, context2, context3, context4) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5> Dispatcher<(C1, C2) -> E>.addContextualEventArgs(
+   context3: C3, context4: C4, context5: C5
+): Dispatcher<(C1, C2, C3, C4, C5) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2 -> eventConstructor(context1, context2, context3, context4, context5) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6> Dispatcher<(C1, C2) -> E>.addContextualEventArgs(
+   context3: C3, context4: C4, context5: C5, context6: C6
+): Dispatcher<(C1, C2, C3, C4, C5, C6) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2 -> eventConstructor(context1, context2, context3, context4, context5, context6) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7> Dispatcher<(C1, C2) -> E>.addContextualEventArgs(
+   context3: C3, context4: C4, context5: C5, context6: C6, context7: C7
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8> Dispatcher<(C1, C2) -> E>.addContextualEventArgs(
+   context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9> Dispatcher<(C1, C2) -> E>.addContextualEventArgs(
+   context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10> Dispatcher<(C1, C2) -> E>.addContextualEventArgs(
+   context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11> Dispatcher<(C1, C2) -> E>.addContextualEventArgs(
+   context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12> Dispatcher<(C1, C2) -> E>.addContextualEventArgs(
+   context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13> Dispatcher<(C1, C2) -> E>.addContextualEventArgs(
+   context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14> Dispatcher<(C1, C2) -> E>.addContextualEventArgs(
+   context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15> Dispatcher<(C1, C2) -> E>.addContextualEventArgs(
+   context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16> Dispatcher<(C1, C2) -> E>.addContextualEventArgs(
+   context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17> Dispatcher<(C1, C2) -> E>.addContextualEventArgs(
+   context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18> Dispatcher<(C1, C2) -> E>.addContextualEventArgs(
+   context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17, context18: C18
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19> Dispatcher<(C1, C2) -> E>.addContextualEventArgs(
+   context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17, context18: C18, context19: C19
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18, context19) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20> Dispatcher<(C1, C2) -> E>.addContextualEventArgs(
+   context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17, context18: C18, context19: C19, context20: C20
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18, context19, context20) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4> Dispatcher<(C1, C2, C3) -> E>.addContextualEventArgs(
+   context4: C4
+): Dispatcher<(C1, C2, C3, C4) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3 -> eventConstructor(context1, context2, context3, context4) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5> Dispatcher<(C1, C2, C3) -> E>.addContextualEventArgs(
+   context4: C4, context5: C5
+): Dispatcher<(C1, C2, C3, C4, C5) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3 -> eventConstructor(context1, context2, context3, context4, context5) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6> Dispatcher<(C1, C2, C3) -> E>.addContextualEventArgs(
+   context4: C4, context5: C5, context6: C6
+): Dispatcher<(C1, C2, C3, C4, C5, C6) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3 -> eventConstructor(context1, context2, context3, context4, context5, context6) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7> Dispatcher<(C1, C2, C3) -> E>.addContextualEventArgs(
+   context4: C4, context5: C5, context6: C6, context7: C7
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8> Dispatcher<(C1, C2, C3) -> E>.addContextualEventArgs(
+   context4: C4, context5: C5, context6: C6, context7: C7, context8: C8
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9> Dispatcher<(C1, C2, C3) -> E>.addContextualEventArgs(
+   context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10> Dispatcher<(C1, C2, C3) -> E>.addContextualEventArgs(
+   context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11> Dispatcher<(C1, C2, C3) -> E>.addContextualEventArgs(
+   context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12> Dispatcher<(C1, C2, C3) -> E>.addContextualEventArgs(
+   context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13> Dispatcher<(C1, C2, C3) -> E>.addContextualEventArgs(
+   context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14> Dispatcher<(C1, C2, C3) -> E>.addContextualEventArgs(
+   context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15> Dispatcher<(C1, C2, C3) -> E>.addContextualEventArgs(
+   context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16> Dispatcher<(C1, C2, C3) -> E>.addContextualEventArgs(
+   context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17> Dispatcher<(C1, C2, C3) -> E>.addContextualEventArgs(
+   context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18> Dispatcher<(C1, C2, C3) -> E>.addContextualEventArgs(
+   context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17, context18: C18
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19> Dispatcher<(C1, C2, C3) -> E>.addContextualEventArgs(
+   context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17, context18: C18, context19: C19
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18, context19) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20> Dispatcher<(C1, C2, C3) -> E>.addContextualEventArgs(
+   context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17, context18: C18, context19: C19, context20: C20
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18, context19, context20) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5> Dispatcher<(C1, C2, C3, C4) -> E>.addContextualEventArgs(
+   context5: C5
+): Dispatcher<(C1, C2, C3, C4, C5) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4 -> eventConstructor(context1, context2, context3, context4, context5) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6> Dispatcher<(C1, C2, C3, C4) -> E>.addContextualEventArgs(
+   context5: C5, context6: C6
+): Dispatcher<(C1, C2, C3, C4, C5, C6) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4 -> eventConstructor(context1, context2, context3, context4, context5, context6) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7> Dispatcher<(C1, C2, C3, C4) -> E>.addContextualEventArgs(
+   context5: C5, context6: C6, context7: C7
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8> Dispatcher<(C1, C2, C3, C4) -> E>.addContextualEventArgs(
+   context5: C5, context6: C6, context7: C7, context8: C8
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9> Dispatcher<(C1, C2, C3, C4) -> E>.addContextualEventArgs(
+   context5: C5, context6: C6, context7: C7, context8: C8, context9: C9
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10> Dispatcher<(C1, C2, C3, C4) -> E>.addContextualEventArgs(
+   context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11> Dispatcher<(C1, C2, C3, C4) -> E>.addContextualEventArgs(
+   context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12> Dispatcher<(C1, C2, C3, C4) -> E>.addContextualEventArgs(
+   context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13> Dispatcher<(C1, C2, C3, C4) -> E>.addContextualEventArgs(
+   context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14> Dispatcher<(C1, C2, C3, C4) -> E>.addContextualEventArgs(
+   context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15> Dispatcher<(C1, C2, C3, C4) -> E>.addContextualEventArgs(
+   context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16> Dispatcher<(C1, C2, C3, C4) -> E>.addContextualEventArgs(
+   context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17> Dispatcher<(C1, C2, C3, C4) -> E>.addContextualEventArgs(
+   context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18> Dispatcher<(C1, C2, C3, C4) -> E>.addContextualEventArgs(
+   context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17, context18: C18
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19> Dispatcher<(C1, C2, C3, C4) -> E>.addContextualEventArgs(
+   context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17, context18: C18, context19: C19
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18, context19) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20> Dispatcher<(C1, C2, C3, C4) -> E>.addContextualEventArgs(
+   context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17, context18: C18, context19: C19, context20: C20
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18, context19, context20) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6> Dispatcher<(C1, C2, C3, C4, C5) -> E>.addContextualEventArgs(
+   context6: C6
+): Dispatcher<(C1, C2, C3, C4, C5, C6) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5 -> eventConstructor(context1, context2, context3, context4, context5, context6) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7> Dispatcher<(C1, C2, C3, C4, C5) -> E>.addContextualEventArgs(
+   context6: C6, context7: C7
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8> Dispatcher<(C1, C2, C3, C4, C5) -> E>.addContextualEventArgs(
+   context6: C6, context7: C7, context8: C8
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9> Dispatcher<(C1, C2, C3, C4, C5) -> E>.addContextualEventArgs(
+   context6: C6, context7: C7, context8: C8, context9: C9
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10> Dispatcher<(C1, C2, C3, C4, C5) -> E>.addContextualEventArgs(
+   context6: C6, context7: C7, context8: C8, context9: C9, context10: C10
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11> Dispatcher<(C1, C2, C3, C4, C5) -> E>.addContextualEventArgs(
+   context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12> Dispatcher<(C1, C2, C3, C4, C5) -> E>.addContextualEventArgs(
+   context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13> Dispatcher<(C1, C2, C3, C4, C5) -> E>.addContextualEventArgs(
+   context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14> Dispatcher<(C1, C2, C3, C4, C5) -> E>.addContextualEventArgs(
+   context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15> Dispatcher<(C1, C2, C3, C4, C5) -> E>.addContextualEventArgs(
+   context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16> Dispatcher<(C1, C2, C3, C4, C5) -> E>.addContextualEventArgs(
+   context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17> Dispatcher<(C1, C2, C3, C4, C5) -> E>.addContextualEventArgs(
+   context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18> Dispatcher<(C1, C2, C3, C4, C5) -> E>.addContextualEventArgs(
+   context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17, context18: C18
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19> Dispatcher<(C1, C2, C3, C4, C5) -> E>.addContextualEventArgs(
+   context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17, context18: C18, context19: C19
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18, context19) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20> Dispatcher<(C1, C2, C3, C4, C5) -> E>.addContextualEventArgs(
+   context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17, context18: C18, context19: C19, context20: C20
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18, context19, context20) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7> Dispatcher<(C1, C2, C3, C4, C5, C6) -> E>.addContextualEventArgs(
+   context7: C7
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8> Dispatcher<(C1, C2, C3, C4, C5, C6) -> E>.addContextualEventArgs(
+   context7: C7, context8: C8
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9> Dispatcher<(C1, C2, C3, C4, C5, C6) -> E>.addContextualEventArgs(
+   context7: C7, context8: C8, context9: C9
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10> Dispatcher<(C1, C2, C3, C4, C5, C6) -> E>.addContextualEventArgs(
+   context7: C7, context8: C8, context9: C9, context10: C10
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11> Dispatcher<(C1, C2, C3, C4, C5, C6) -> E>.addContextualEventArgs(
+   context7: C7, context8: C8, context9: C9, context10: C10, context11: C11
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12> Dispatcher<(C1, C2, C3, C4, C5, C6) -> E>.addContextualEventArgs(
+   context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13> Dispatcher<(C1, C2, C3, C4, C5, C6) -> E>.addContextualEventArgs(
+   context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14> Dispatcher<(C1, C2, C3, C4, C5, C6) -> E>.addContextualEventArgs(
+   context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15> Dispatcher<(C1, C2, C3, C4, C5, C6) -> E>.addContextualEventArgs(
+   context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16> Dispatcher<(C1, C2, C3, C4, C5, C6) -> E>.addContextualEventArgs(
+   context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17> Dispatcher<(C1, C2, C3, C4, C5, C6) -> E>.addContextualEventArgs(
+   context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18> Dispatcher<(C1, C2, C3, C4, C5, C6) -> E>.addContextualEventArgs(
+   context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17, context18: C18
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19> Dispatcher<(C1, C2, C3, C4, C5, C6) -> E>.addContextualEventArgs(
+   context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17, context18: C18, context19: C19
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18, context19) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20> Dispatcher<(C1, C2, C3, C4, C5, C6) -> E>.addContextualEventArgs(
+   context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17, context18: C18, context19: C19, context20: C20
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18, context19, context20) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8> Dispatcher<(C1, C2, C3, C4, C5, C6, C7) -> E>.addContextualEventArgs(
+   context8: C8
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9> Dispatcher<(C1, C2, C3, C4, C5, C6, C7) -> E>.addContextualEventArgs(
+   context8: C8, context9: C9
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10> Dispatcher<(C1, C2, C3, C4, C5, C6, C7) -> E>.addContextualEventArgs(
+   context8: C8, context9: C9, context10: C10
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11> Dispatcher<(C1, C2, C3, C4, C5, C6, C7) -> E>.addContextualEventArgs(
+   context8: C8, context9: C9, context10: C10, context11: C11
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12> Dispatcher<(C1, C2, C3, C4, C5, C6, C7) -> E>.addContextualEventArgs(
+   context8: C8, context9: C9, context10: C10, context11: C11, context12: C12
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13> Dispatcher<(C1, C2, C3, C4, C5, C6, C7) -> E>.addContextualEventArgs(
+   context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14> Dispatcher<(C1, C2, C3, C4, C5, C6, C7) -> E>.addContextualEventArgs(
+   context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15> Dispatcher<(C1, C2, C3, C4, C5, C6, C7) -> E>.addContextualEventArgs(
+   context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16> Dispatcher<(C1, C2, C3, C4, C5, C6, C7) -> E>.addContextualEventArgs(
+   context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17> Dispatcher<(C1, C2, C3, C4, C5, C6, C7) -> E>.addContextualEventArgs(
+   context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18> Dispatcher<(C1, C2, C3, C4, C5, C6, C7) -> E>.addContextualEventArgs(
+   context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17, context18: C18
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19> Dispatcher<(C1, C2, C3, C4, C5, C6, C7) -> E>.addContextualEventArgs(
+   context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17, context18: C18, context19: C19
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18, context19) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20> Dispatcher<(C1, C2, C3, C4, C5, C6, C7) -> E>.addContextualEventArgs(
+   context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17, context18: C18, context19: C19, context20: C20
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18, context19, context20) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8) -> E>.addContextualEventArgs(
+   context9: C9
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8) -> E>.addContextualEventArgs(
+   context9: C9, context10: C10
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8) -> E>.addContextualEventArgs(
+   context9: C9, context10: C10, context11: C11
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8) -> E>.addContextualEventArgs(
+   context9: C9, context10: C10, context11: C11, context12: C12
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8) -> E>.addContextualEventArgs(
+   context9: C9, context10: C10, context11: C11, context12: C12, context13: C13
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8) -> E>.addContextualEventArgs(
+   context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8) -> E>.addContextualEventArgs(
+   context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8) -> E>.addContextualEventArgs(
+   context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8) -> E>.addContextualEventArgs(
+   context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8) -> E>.addContextualEventArgs(
+   context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17, context18: C18
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8) -> E>.addContextualEventArgs(
+   context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17, context18: C18, context19: C19
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18, context19) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8) -> E>.addContextualEventArgs(
+   context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17, context18: C18, context19: C19, context20: C20
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18, context19, context20) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9) -> E>.addContextualEventArgs(
+   context10: C10
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9) -> E>.addContextualEventArgs(
+   context10: C10, context11: C11
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9) -> E>.addContextualEventArgs(
+   context10: C10, context11: C11, context12: C12
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9) -> E>.addContextualEventArgs(
+   context10: C10, context11: C11, context12: C12, context13: C13
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9) -> E>.addContextualEventArgs(
+   context10: C10, context11: C11, context12: C12, context13: C13, context14: C14
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9) -> E>.addContextualEventArgs(
+   context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9) -> E>.addContextualEventArgs(
+   context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9) -> E>.addContextualEventArgs(
+   context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9) -> E>.addContextualEventArgs(
+   context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17, context18: C18
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9) -> E>.addContextualEventArgs(
+   context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17, context18: C18, context19: C19
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18, context19) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9) -> E>.addContextualEventArgs(
+   context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17, context18: C18, context19: C19, context20: C20
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18, context19, context20) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10) -> E>.addContextualEventArgs(
+   context11: C11
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10) -> E>.addContextualEventArgs(
+   context11: C11, context12: C12
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10) -> E>.addContextualEventArgs(
+   context11: C11, context12: C12, context13: C13
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10) -> E>.addContextualEventArgs(
+   context11: C11, context12: C12, context13: C13, context14: C14
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10) -> E>.addContextualEventArgs(
+   context11: C11, context12: C12, context13: C13, context14: C14, context15: C15
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10) -> E>.addContextualEventArgs(
+   context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10) -> E>.addContextualEventArgs(
+   context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10) -> E>.addContextualEventArgs(
+   context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17, context18: C18
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10) -> E>.addContextualEventArgs(
+   context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17, context18: C18, context19: C19
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18, context19) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10) -> E>.addContextualEventArgs(
+   context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17, context18: C18, context19: C19, context20: C20
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18, context19, context20) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11) -> E>.addContextualEventArgs(
+   context12: C12
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11) -> E>.addContextualEventArgs(
+   context12: C12, context13: C13
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11) -> E>.addContextualEventArgs(
+   context12: C12, context13: C13, context14: C14
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11) -> E>.addContextualEventArgs(
+   context12: C12, context13: C13, context14: C14, context15: C15
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11) -> E>.addContextualEventArgs(
+   context12: C12, context13: C13, context14: C14, context15: C15, context16: C16
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11) -> E>.addContextualEventArgs(
+   context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11) -> E>.addContextualEventArgs(
+   context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17, context18: C18
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11) -> E>.addContextualEventArgs(
+   context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17, context18: C18, context19: C19
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18, context19) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11) -> E>.addContextualEventArgs(
+   context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17, context18: C18, context19: C19, context20: C20
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18, context19, context20) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12) -> E>.addContextualEventArgs(
+   context13: C13
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12) -> E>.addContextualEventArgs(
+   context13: C13, context14: C14
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12) -> E>.addContextualEventArgs(
+   context13: C13, context14: C14, context15: C15
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12) -> E>.addContextualEventArgs(
+   context13: C13, context14: C14, context15: C15, context16: C16
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12) -> E>.addContextualEventArgs(
+   context13: C13, context14: C14, context15: C15, context16: C16, context17: C17
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12) -> E>.addContextualEventArgs(
+   context13: C13, context14: C14, context15: C15, context16: C16, context17: C17, context18: C18
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12) -> E>.addContextualEventArgs(
+   context13: C13, context14: C14, context15: C15, context16: C16, context17: C17, context18: C18, context19: C19
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18, context19) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12) -> E>.addContextualEventArgs(
+   context13: C13, context14: C14, context15: C15, context16: C16, context17: C17, context18: C18, context19: C19, context20: C20
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18, context19, context20) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13) -> E>.addContextualEventArgs(
+   context14: C14
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13) -> E>.addContextualEventArgs(
+   context14: C14, context15: C15
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13) -> E>.addContextualEventArgs(
+   context14: C14, context15: C15, context16: C16
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13) -> E>.addContextualEventArgs(
+   context14: C14, context15: C15, context16: C16, context17: C17
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13) -> E>.addContextualEventArgs(
+   context14: C14, context15: C15, context16: C16, context17: C17, context18: C18
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13) -> E>.addContextualEventArgs(
+   context14: C14, context15: C15, context16: C16, context17: C17, context18: C18, context19: C19
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18, context19) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13) -> E>.addContextualEventArgs(
+   context14: C14, context15: C15, context16: C16, context17: C17, context18: C18, context19: C19, context20: C20
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18, context19, context20) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14) -> E>.addContextualEventArgs(
+   context15: C15
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14) -> E>.addContextualEventArgs(
+   context15: C15, context16: C16
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14) -> E>.addContextualEventArgs(
+   context15: C15, context16: C16, context17: C17
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14) -> E>.addContextualEventArgs(
+   context15: C15, context16: C16, context17: C17, context18: C18
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14) -> E>.addContextualEventArgs(
+   context15: C15, context16: C16, context17: C17, context18: C18, context19: C19
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18, context19) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14) -> E>.addContextualEventArgs(
+   context15: C15, context16: C16, context17: C17, context18: C18, context19: C19, context20: C20
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18, context19, context20) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15) -> E>.addContextualEventArgs(
+   context16: C16
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15) -> E>.addContextualEventArgs(
+   context16: C16, context17: C17
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15) -> E>.addContextualEventArgs(
+   context16: C16, context17: C17, context18: C18
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15) -> E>.addContextualEventArgs(
+   context16: C16, context17: C17, context18: C18, context19: C19
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18, context19) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15) -> E>.addContextualEventArgs(
+   context16: C16, context17: C17, context18: C18, context19: C19, context20: C20
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18, context19, context20) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16) -> E>.addContextualEventArgs(
+   context17: C17
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16) -> E>.addContextualEventArgs(
+   context17: C17, context18: C18
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16) -> E>.addContextualEventArgs(
+   context17: C17, context18: C18, context19: C19
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18, context19) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16) -> E>.addContextualEventArgs(
+   context17: C17, context18: C18, context19: C19, context20: C20
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18, context19, context20) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17) -> E>.addContextualEventArgs(
+   context18: C18
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17) -> E>.addContextualEventArgs(
+   context18: C18, context19: C19
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18, context19) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17) -> E>.addContextualEventArgs(
+   context18: C18, context19: C19, context20: C20
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18, context19, context20) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18) -> E>.addContextualEventArgs(
+   context19: C19
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17, context18: C18 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18, context19) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18) -> E>.addContextualEventArgs(
+   context19: C19, context20: C20
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17, context18: C18 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18, context19, context20) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
+fun <E : Event, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20> Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19) -> E>.addContextualEventArgs(
+   context20: C20
+): Dispatcher<(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20) -> E> {
+   return Dispatcher { eventConstructor ->
+      val partialAppliedConstructor = { context1: C1, context2: C2, context3: C3, context4: C4, context5: C5, context6: C6, context7: C7, context8: C8, context9: C9, context10: C10, context11: C11, context12: C12, context13: C13, context14: C14, context15: C15, context16: C16, context17: C17, context18: C18, context19: C19 -> eventConstructor(context1, context2, context3, context4, context5, context6, context7, context8, context9, context10, context11, context12, context13, context14, context15, context16, context17, context18, context19, context20) }
+      this@addContextualEventArgs(partialAppliedConstructor)
+   }
+}
+
 context(parent: Dispatcher<() -> E>)
 inline fun <E : Event, R, C1> contextualEventArgs(
    context1: C1,
