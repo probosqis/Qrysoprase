@@ -21,6 +21,8 @@ plugins {
    alias libs.plugins.compose.compiler
 }
 
+final generatedSrcDir = new File(project.buildDir, 'generated/src'.replace('/', File.separator))
+
 kotlin {
    androidTarget()
    jvm('desktop')
@@ -32,6 +34,8 @@ kotlin {
    }
 
    sourceSets {
+      commonMain.kotlin.srcDir generatedSrcDir
+
       commonMain.dependencies {
          implementation compose.runtime
       }
@@ -61,4 +65,61 @@ android {
    namespace 'com.wcaokaze.probosqis.qrysoprase'
 
    compileSdk 35
+}
+
+tasks.register('generateEventArgUtils') {
+   doFirst {
+      final packageName = 'com.wcaokaze.probosqis.qrysoprase'
+      final packageDir = new File(
+          generatedSrcDir, packageName.replace('.', File.separator)
+      )
+
+      final file = new File(packageDir, 'AddContextualEventArgs.kt')
+
+      if (!packageDir.exists() && !packageDir.mkdirs()) {
+         throw new GradleException("can not generate source: $file")
+      }
+
+      file.write(
+         """
+            package $packageName
+
+            private inline fun <C : Function<Event>> Dispatcher(
+               crossinline dispatcher: (eventConstructor: C) -> Unit
+            ): Dispatcher<C> {
+               return object : Dispatcher<C>() {
+                  override fun invoke(eventConstructor: C) {
+                     dispatcher(eventConstructor)
+                  }
+               }
+            }
+
+            ${
+               (1..20)
+                   .collect { p ->
+                      (p..20).collect { c ->
+                         """
+                            fun <E : Event, ${(1..c).collect { "C$it" }.join(', ')}> Dispatcher<(${(1..<p).collect { "C$it" }.join(', ')}) -> E>.addContextualEventArgs(
+                               ${(p..c).collect { "context$it: C$it" }.join(', ')}
+                            ): Dispatcher<(${(1..c).collect { "C$it" }.join(', ')}) -> E> {
+                               return Dispatcher { eventConstructor ->
+                                  val partialAppliedConstructor = { ${(1..<p).collect { "context$it: C$it" }.join(', ') } -> eventConstructor(${(1..c).collect { "context$it" }.join(', ')}) }
+                                  this(partialAppliedConstructor)
+                               }
+                            }
+                         """
+                      }.join()
+                   }
+                   .join()
+            }
+         """,
+         'UTF-8', /* writeBom = */ false
+      )
+   }
+}
+
+tasks.configureEach { task ->
+   if (task.name.contains('compileKotlin')) {
+      task.dependsOn 'generateEventArgUtils'
+   }
 }

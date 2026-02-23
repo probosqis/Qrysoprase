@@ -117,3 +117,12 @@ fun <E : Event, C : () -> E> rememberDispatcher(
       Dispatcher(listener)
    }
 }
+
+/*
+ * generated in build.gradle
+ *
+ * fun <E : Event, C1..C20> Dispatcher<(C1..C19) -> E>.addContextualEventArgs(
+ *    context1: C1, .. context20: C20
+ * ): Dispatcher<(C1..C20) -> E>
+ *
+ */
