@@ -99,6 +99,7 @@ tasks.register('generateEventArgUtils') {
                    .collect { p ->
                       (p..20).collect { c ->
                          """
+                            @JvmName("addContextualEventArgs${p - 1}To$c")
                             fun <E : Event, ${(1..c).collect { "C$it" }.join(', ')}> Dispatcher<(${(1..<p).collect { "C$it" }.join(', ')}) -> E>.addContextualEventArgs(
                                ${(p..c).collect { "context$it: C$it" }.join(', ')}
                             ): Dispatcher<(${(1..c).collect { "C$it" }.join(', ')}) -> E> {
