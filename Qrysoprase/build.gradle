@@ -74,13 +74,11 @@ tasks.register('generateEventArgUtils') {
           generatedSrcDir, packageName.replace('.', File.separator)
       )
 
-      final file = new File(packageDir, 'AddContextualEventArgs.kt')
-
       if (!packageDir.exists() && !packageDir.mkdirs()) {
          throw new GradleException("can not generate source: $file")
       }
 
-      file.write(
+      new File(packageDir, 'AddContextualEventArgs.kt').write(
          """
             package $packageName
 
@@ -112,6 +110,34 @@ tasks.register('generateEventArgUtils') {
                       }.join()
                    }
                    .join()
+            }
+         """,
+         'UTF-8', /* writeBom = */ false
+      )
+
+      new File(packageDir, 'DispatchWithArgs.kt').write(
+         """
+            package $packageName
+
+            ${
+               (1..20)
+                  .collect { a ->
+                     """
+                        operator fun <E : Event, ${(1..a).collect { "A$it" }.join(', ')}>
+                           Dispatcher<() -> E>.invoke(
+                              eventConstructor: (${(1..a).collect { "A$it" }.join(', ')}) -> E,
+                              ${(1..a).collect { "arg$it: A$it" }.join(', ')}
+                           )
+                        {
+                           val constructor = fun (): E {
+                              return eventConstructor(${(1..a).collect { "arg$it" }.join(', ')})
+                           }
+
+                           invoke(constructor)
+                        }
+                     """
+                  }
+                  .join()
             }
          """,
          'UTF-8', /* writeBom = */ false
