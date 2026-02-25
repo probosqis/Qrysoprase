@@ -121,21 +121,23 @@ tasks.register('generateEventArgUtils') {
 
             ${
                (1..20)
-                  .collect { a ->
-                     """
-                        operator fun <E : Event, ${(1..a).collect { "A$it" }.join(', ')}>
-                           Dispatcher<() -> E>.invoke(
-                              eventConstructor: (${(1..a).collect { "A$it" }.join(', ')}) -> E,
-                              ${(1..a).collect { "arg$it: A$it" }.join(', ')}
-                           )
-                        {
-                           val constructor = fun (): E {
-                              return eventConstructor(${(1..a).collect { "arg$it" }.join(', ')})
-                           }
+                  .collect { c ->
+                     (c..20).collect { a ->
+                        """
+                           operator fun <E : Event, ${(1..<c).collect { "C$it, " }.join('')}${(c..a).collect { "A$it" }.join(', ')}>
+                              Dispatcher<(${(1..<c).collect { "C$it" }.join(', ')}) -> E>.invoke(
+                                 eventConstructor: (${(1..<c).collect { "C$it, " }.join('')}${(c..a).collect { "A$it" }.join(', ')}) -> E,
+                                 ${(c..a).collect { "arg$it: A$it" }.join(', ')}
+                              )
+                           {
+                              val constructor = fun (${(1..<c).collect { "context$it: C$it" }.join(', ')}): E {
+                                 return eventConstructor(${(1..<c).collect { "context$it, " }.join('')}${(c..a).collect { "arg$it" }.join(', ')})
+                              }
 
-                           invoke(constructor)
-                        }
-                     """
+                              invoke(constructor)
+                           }
+                        """
+                     }.join()
                   }
                   .join()
             }

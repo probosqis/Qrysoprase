@@ -125,8 +125,8 @@ fun <E : Event, C : () -> E> rememberDispatcher(
  *    context1: C1, .. context20: C20
  * ): Dispatcher<(C1..C20) -> E>
  *
- * operator fun <E : Event, A1, .. A20> Dispatcher<() -> E>.invoke(
- *    eventConstructor: (A1, .. A20) -> E,
+ * operator fun <E : Event, C1..A20> Dispatcher<(C1..C19) -> E>.invoke(
+ *    eventConstructor: (C1..A20) -> E,
  *    arg1: A1, .. arg20: A20
  * )
  *
