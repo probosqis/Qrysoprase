@@ -151,18 +151,21 @@ tasks.register('generateEventArgUtils') {
 
             ${
                (1..20)
-                  .collect { c ->
-                     """
-                        context(parent: Dispatcher<() -> E>)
-                        inline fun <E : Event, R, ${(1..c).collect { "C$it" }.join(', ')}> contextualEventArgs(
-                           ${(1..c).collect { "context$it: C$it" }.join(', ')},
-                           block: context(Dispatcher<(${(1..c).collect { "C$it" }.join(', ')}) -> E>) () -> R
-                        ): R {
-                           return context(parent.addContextualEventArgs(${(1..c).collect { "context$it" }.join(', ')})) {
-                              block()
+                  .collect { p ->
+                     (p..20).collect { c ->
+                        """
+                           @JvmName("contextualEventArgs${p - 1}To$c")
+                           context(parent: Dispatcher<(${(1..<p).collect { "C$it" }.join(', ')}) -> E>)
+                           inline fun <E : Event, R, ${(1..c).collect { "C$it" }.join(', ')}> contextualEventArgs(
+                              ${(p..c).collect { "context$it: C$it" }.join(', ')},
+                              block: context(Dispatcher<(${(1..c).collect { "C$it" }.join(', ')}) -> E>) () -> R
+                           ): R {
+                              return context(parent.addContextualEventArgs(${(p..c).collect { "context$it" }.join(', ')})) {
+                                 block()
+                              }
                            }
-                        }
-                     """
+                        """
+                     }.join()
                   }
                   .join()
             }

@@ -130,7 +130,7 @@ fun <E : Event, C : () -> E> rememberDispatcher(
  *    arg1: A1, .. arg20: A20
  * )
  *
- * context(parent: Dispatcher<() -> E>)
+ * context(parent: Dispatcher<(C1..C19) -> E>)
  * inline fun <E : Event, R, C1..C20> contextualEventArgs(
  *    context1: C1, .. context20: C20,
  *    block: context(Dispatcher<(C1..C20) -> E>) () -> R
