@@ -136,4 +136,9 @@ fun <E : Event, C : () -> E> rememberDispatcher(
  *    block: context(Dispatcher<(C1..C20) -> E>) () -> R
  * ): R
  *
+ * inline fun <E : Event, R, C1..C20> Dispatcher<(C1..C19) -> E>.contextualEventArgs(
+ *    context1: C1, .. context20: C20,
+ *    block: context(Dispatcher<(C1..C20) -> E>) () -> R
+ * ): R
+ *
  */

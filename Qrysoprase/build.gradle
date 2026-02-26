@@ -172,6 +172,33 @@ tasks.register('generateEventArgUtils') {
          """,
          'UTF-8', /* writeBom = */ false
       )
+
+      new File(packageDir, 'ContextualEventArgsExtension.kt').write(
+         """
+            package $packageName
+
+            ${
+               (1..20)
+                  .collect { p ->
+                     (p..20).collect { c ->
+                        """
+                           @JvmName("contextualEventArgsExtension${p - 1}To$c")
+                           inline fun <E : Event, R, ${(1..c).collect { "C$it" }.join(', ')}> Dispatcher<(${(1..<p).collect { "C$it" }.join(', ')}) -> E>.contextualEventArgs(
+                              ${(p..c).collect { "context$it: C$it" }.join(', ')},
+                              block: context(Dispatcher<(${(1..c).collect { "C$it" }.join(', ')}) -> E>) () -> R
+                           ): R {
+                              return context(addContextualEventArgs(${(p..c).collect { "context$it" }.join(', ')})) {
+                                 block()
+                              }
+                           }
+                        """
+                     }.join()
+                  }
+                  .join()
+            }
+         """,
+         'UTF-8', /* writeBom = */ false
+      )
    }
 }
 
