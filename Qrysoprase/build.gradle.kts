@@ -14,71 +14,79 @@
  * limitations under the License.
  */
 
+import org.jetbrains.compose.ExperimentalComposeLibrary
+
 plugins {
-   alias libs.plugins.kotlin.multiplatform
-   alias libs.plugins.android.library
-   alias libs.plugins.compose.jb
-   alias libs.plugins.compose.compiler
+   alias(libs.plugins.kotlin.multiplatform)
+   alias(libs.plugins.android.library)
+   alias(libs.plugins.compose.jb)
+   alias(libs.plugins.compose.compiler)
 }
 
-final generatedSrcDir = new File(project.buildDir, 'generated/src'.replace('/', File.separator))
+val generatedSrcDir = layout.buildDirectory.file("generated/src").get().asFile
 
 kotlin {
    androidTarget()
-   jvm('desktop')
+   jvm("desktop")
 
    jvmToolchain(17)
 
    compilerOptions {
-      freeCompilerArgs = ['-Xcontext-parameters']
+      freeCompilerArgs.addAll(
+         "-Xcontext-parameters",
+      )
    }
 
    sourceSets {
-      commonMain.kotlin.srcDir generatedSrcDir
+      commonMain {
+         kotlin.srcDir(generatedSrcDir)
+      }
 
       commonMain.dependencies {
-         implementation compose.runtime
+         implementation(compose.runtime)
       }
 
       commonTest.dependencies {
-         implementation libs.kotlin.test.junit
-         implementation compose.uiTestJUnit4
+         implementation(libs.kotlin.test.junit)
+
+         @OptIn(ExperimentalComposeLibrary::class)
+         implementation(compose.uiTest)
       }
 
       androidMain.dependencies {
       }
 
-      androidTest.dependencies {
+      androidUnitTest.dependencies {
       }
 
-      desktopMain.dependencies {
+      named("desktopMain").dependencies {
       }
 
-      desktopTest.dependencies {
-         implementation compose.desktop.currentOs
-         implementation compose.material3
+      named("desktopTest").dependencies {
+         implementation(compose.desktop.currentOs)
+         implementation(compose.material3)
       }
    }
 }
 
 android {
-   namespace 'com.wcaokaze.probosqis.qrysoprase'
+   namespace = "com.wcaokaze.probosqis.qrysoprase"
 
-   compileSdk 35
+   compileSdk = 35
 }
 
-tasks.register('generateEventArgUtils') {
+tasks.register("generateEventArgUtils") {
    doFirst {
-      final packageName = 'com.wcaokaze.probosqis.qrysoprase'
-      final packageDir = new File(
-          generatedSrcDir, packageName.replace('.', File.separator)
+      val packageName = "com.wcaokaze.probosqis.qrysoprase"
+      val packageDir = File(
+          generatedSrcDir, packageName.replace(".", File.separator)
       )
 
       if (!packageDir.exists() && !packageDir.mkdirs()) {
-         throw new GradleException("can not generate source: $file")
+         throw GradleException("can not generate source dir: $packageDir")
       }
 
-      new File(packageDir, 'AddContextualEventArgs.kt').write(
+      File(packageDir, "AddContextualEventArgs.kt").writeText(
          """
             package $packageName
 
@@ -94,116 +102,112 @@ tasks.register('generateEventArgUtils') {
 
             ${
                (1..20)
-                   .collect { p ->
-                      (p..20).collect { c ->
+                   .map { p ->
+                      (p..20).map { c ->
                          """
                             @JvmName("addContextualEventArgs${p - 1}To$c")
-                            fun <E : Event, ${(1..c).collect { "C$it" }.join(', ')}> Dispatcher<(${(1..<p).collect { "C$it" }.join(', ')}) -> E>.addContextualEventArgs(
-                               ${(p..c).collect { "context$it: C$it" }.join(', ')}
-                            ): Dispatcher<(${(1..c).collect { "C$it" }.join(', ')}) -> E> {
+                            fun <E : Event, ${(1..c).map { "C$it" }.joinToString(", ")}> Dispatcher<(${(1..<p).map { "C$it" }.joinToString(", ")}) -> E>.addContextualEventArgs(
+                               ${(p..c).map { "context$it: C$it" }.joinToString(", ")}
+                            ): Dispatcher<(${(1..c).map { "C$it" }.joinToString(", ")}) -> E> {
                                return Dispatcher { eventConstructor ->
-                                  val partialAppliedConstructor = { ${(1..<p).collect { "context$it: C$it" }.join(', ') } -> eventConstructor(${(1..c).collect { "context$it" }.join(', ')}) }
+                                  val partialAppliedConstructor = { ${(1..<p).map { "context$it: C$it" }.joinToString(", ") } -> eventConstructor(${(1..c).map { "context$it" }.joinToString(", ")}) }
                                   this(partialAppliedConstructor)
                                }
                             }
                          """
-                      }.join()
+                      }.joinToString()
                    }
-                   .join()
+                   .joinToString()
             }
-         """,
-         'UTF-8', /* writeBom = */ false
+         """
       )
 
-      new File(packageDir, 'DispatchWithArgs.kt').write(
+      File(packageDir, "DispatchWithArgs.kt").writeText(
          """
             package $packageName
 
             ${
                (1..20)
-                  .collect { c ->
-                     (c..20).collect { a ->
+                  .map { c ->
+                     (c..20).map { a ->
                         """
-                           operator fun <E : Event, ${(1..<c).collect { "C$it, " }.join('')}${(c..a).collect { "A$it" }.join(', ')}>
-                              Dispatcher<(${(1..<c).collect { "C$it" }.join(', ')}) -> E>.invoke(
-                                 eventConstructor: (${(1..<c).collect { "C$it, " }.join('')}${(c..a).collect { "A$it" }.join(', ')}) -> E,
-                                 ${(c..a).collect { "arg$it: A$it" }.join(', ')}
+                           operator fun <E : Event, ${(1..<c).map { "C$it, " }.joinToString("")}${(c..a).map { "A$it" }.joinToString(", ")}>
+                              Dispatcher<(${(1..<c).map { "C$it" }.joinToString(", ")}) -> E>.invoke(
+                                 eventConstructor: (${(1..<c).map { "C$it, " }.joinToString("")}${(c..a).map { "A$it" }.joinToString(", ")}) -> E,
+                                 ${(c..a).map { "arg$it: A$it" }.joinToString(", ")}
                               )
                            {
-                              val constructor = fun (${(1..<c).collect { "context$it: C$it" }.join(', ')}): E {
-                                 return eventConstructor(${(1..<c).collect { "context$it, " }.join('')}${(c..a).collect { "arg$it" }.join(', ')})
+                              val constructor = fun (${(1..<c).map { "context$it: C$it" }.joinToString(", ")}): E {
+                                 return eventConstructor(${(1..<c).map { "context$it, " }.joinToString("")}${(c..a).map { "arg$it" }.joinToString(", ")})
                               }
 
                               invoke(constructor)
                            }
                         """
-                     }.join()
+                     }.joinToString()
                   }
-                  .join()
+                  .joinToString()
             }
-         """,
-         'UTF-8', /* writeBom = */ false
+         """
       )
 
-      new File(packageDir, 'ContextualEventArgs.kt').write(
+      File(packageDir, "ContextualEventArgs.kt").writeText(
          """
             package $packageName
 
             ${
                (1..20)
-                  .collect { p ->
-                     (p..20).collect { c ->
+                  .map { p ->
+                     (p..20).map { c ->
                         """
                            @JvmName("contextualEventArgs${p - 1}To$c")
-                           context(parent: Dispatcher<(${(1..<p).collect { "C$it" }.join(', ')}) -> E>)
-                           inline fun <E : Event, R, ${(1..c).collect { "C$it" }.join(', ')}> contextualEventArgs(
-                              ${(p..c).collect { "context$it: C$it" }.join(', ')},
-                              block: context(Dispatcher<(${(1..c).collect { "C$it" }.join(', ')}) -> E>) () -> R
+                           context(parent: Dispatcher<(${(1..<p).map { "C$it" }.joinToString(", ")}) -> E>)
+                           inline fun <E : Event, R, ${(1..c).map { "C$it" }.joinToString(", ")}> contextualEventArgs(
+                              ${(p..c).map { "context$it: C$it" }.joinToString(", ")},
+                              block: context(Dispatcher<(${(1..c).map { "C$it" }.joinToString(", ")}) -> E>) () -> R
                            ): R {
-                              return context(parent.addContextualEventArgs(${(p..c).collect { "context$it" }.join(', ')})) {
+                              return context(parent.addContextualEventArgs(${(p..c).map { "context$it" }.joinToString(", ")})) {
                                  block()
                               }
                            }
                         """
-                     }.join()
+                     }.joinToString()
                   }
-                  .join()
+                  .joinToString()
             }
-         """,
-         'UTF-8', /* writeBom = */ false
+         """
       )
 
-      new File(packageDir, 'ContextualEventArgsExtension.kt').write(
+      File(packageDir, "ContextualEventArgsExtension.kt").writeText(
          """
             package $packageName
 
             ${
                (1..20)
-                  .collect { p ->
-                     (p..20).collect { c ->
+                  .map { p ->
+                     (p..20).map { c ->
                         """
                            @JvmName("contextualEventArgsExtension${p - 1}To$c")
-                           inline fun <E : Event, R, ${(1..c).collect { "C$it" }.join(', ')}> Dispatcher<(${(1..<p).collect { "C$it" }.join(', ')}) -> E>.contextualEventArgs(
-                              ${(p..c).collect { "context$it: C$it" }.join(', ')},
-                              block: context(Dispatcher<(${(1..c).collect { "C$it" }.join(', ')}) -> E>) () -> R
+                           inline fun <E : Event, R, ${(1..c).map { "C$it" }.joinToString(", ")}> Dispatcher<(${(1..<p).map { "C$it" }.joinToString(", ")}) -> E>.contextualEventArgs(
+                              ${(p..c).map { "context$it: C$it" }.joinToString(", ")},
+                              block: context(Dispatcher<(${(1..c).map { "C$it" }.joinToString(", ")}) -> E>) () -> R
                            ): R {
-                              return context(addContextualEventArgs(${(p..c).collect { "context$it" }.join(', ')})) {
+                              return context(addContextualEventArgs(${(p..c).map { "context$it" }.joinToString(", ")})) {
                                  block()
                               }
                            }
                         """
-                     }.join()
+                     }.joinToString()
                   }
-                  .join()
+                  .joinToString()
             }
-         """,
-         'UTF-8', /* writeBom = */ false
+         """
       )
    }
 }
 
-tasks.configureEach { task ->
-   if (task.name.contains('compileKotlin')) {
-      task.dependsOn 'generateEventArgUtils'
+tasks.configureEach {
+   if (name.contains("compileKotlin")) {
+      dependsOn("generateEventArgUtils")
    }
 }

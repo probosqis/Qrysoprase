@@ -29,4 +29,4 @@ dependencyResolutionManagement {
    }
 }
 
-rootProject.name = 'qrysoprase'
+rootProject.name = "qrysoprase"
