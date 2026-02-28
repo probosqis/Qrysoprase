@@ -21,7 +21,7 @@ plugins {
    alias(libs.plugins.compose.compiler)
 }
 
-val generatedSrcDir = layout.buildDirectory.file("generated/src").get().asFile
+val generatedSrcDir = layout.buildDirectory.file("generated/src")
 
 kotlin {
    androidTarget()
@@ -72,6 +72,8 @@ android {
 }
 
 tasks.register("generateEventArgUtils") {
+   val generatedSrcDir = generatedSrcDir.get().asFile
+
    doFirst {
       val packageName = "com.wcaokaze.probosqis.qrysoprase"
       val packageDir = File(
@@ -82,123 +84,114 @@ tasks.register("generateEventArgUtils") {
          throw GradleException("can not generate source dir: $packageDir")
       }
 
-      File(packageDir, "AddContextualEventArgs.kt").writeText(
-         """
-            package $packageName
+      operator fun IntRange.invoke(separator: String = ", ", mapper: (Int) -> String)
+          = joinToString(separator) { mapper(it) }
 
-            private inline fun <C : Function<Event>> Dispatcher(
-               crossinline dispatcher: (eventConstructor: C) -> Unit
-            ): Dispatcher<C> {
-               return object : Dispatcher<C>() {
-                  override fun invoke(eventConstructor: C) {
-                     dispatcher(eventConstructor)
+      File(packageDir, "AddContextualEventArgs.kt").writer().use { writer ->
+         writer.write(
+            """
+               package $packageName
+
+               private inline fun <C : Function<Event>> Dispatcher(
+                  crossinline dispatcher: (eventConstructor: C) -> Unit
+               ): Dispatcher<C> {
+                  return object : Dispatcher<C>() {
+                     override fun invoke(eventConstructor: C) {
+                        dispatcher(eventConstructor)
+                     }
                   }
                }
+            """
+         )
+
+         for (p in 1..20) {
+            for (c in p..20) {
+               writer.write(
+                  """
+                     @JvmName("addContextualEventArgs${p - 1}To$c")
+                     fun <E : Event, ${(1..c) { "C$it" }}> Dispatcher<(${(1..<p) { "C$it" }}) -> E>.addContextualEventArgs(
+                        ${(p..c) { "context$it: C$it" }}
+                     ): Dispatcher<(${(1..c) { "C$it" }}) -> E> {
+                        return Dispatcher { eventConstructor ->
+                           val partialAppliedConstructor = { ${(1..<p) { "context$it: C$it" }} -> eventConstructor(${(1..c) { "context$it" }}) }
+                           this(partialAppliedConstructor)
+                        }
+                     }
+                  """
+               )
             }
+         }
+      }
 
-            ${
-               (1..20)
-                   .map { p ->
-                      (p..20).map { c ->
-                         """
-                            @JvmName("addContextualEventArgs${p - 1}To$c")
-                            fun <E : Event, ${(1..c).map { "C$it" }.joinToString(", ")}> Dispatcher<(${(1..<p).map { "C$it" }.joinToString(", ")}) -> E>.addContextualEventArgs(
-                               ${(p..c).map { "context$it: C$it" }.joinToString(", ")}
-                            ): Dispatcher<(${(1..c).map { "C$it" }.joinToString(", ")}) -> E> {
-                               return Dispatcher { eventConstructor ->
-                                  val partialAppliedConstructor = { ${(1..<p).map { "context$it: C$it" }.joinToString(", ") } -> eventConstructor(${(1..c).map { "context$it" }.joinToString(", ")}) }
-                                  this(partialAppliedConstructor)
-                               }
-                            }
-                         """
-                      }.joinToString()
-                   }
-                   .joinToString()
+      File(packageDir, "DispatchWithArgs.kt").writer().use { writer ->
+         writer.write("package $packageName")
+
+         for (c in 1..20) {
+            for (a in c..20) {
+               writer.write(
+                  """
+                     operator fun <E : Event, ${(1..<c)("") { "C$it, " }}${(c..a) { "A$it" }}>
+                        Dispatcher<(${(1..<c) { "C$it" }}) -> E>.invoke(
+                           eventConstructor: (${(1..<c)("") { "C$it, " }}${(c..a) { "A$it" }}) -> E,
+                           ${(c..a) { "arg$it: A$it" }}
+                        )
+                     {
+                        val constructor = fun (${(1..<c) { "context$it: C$it" }}): E {
+                           return eventConstructor(${(1..<c)("") { "context$it, " }}${(c..a) { "arg$it" }})
+                        }
+
+                        invoke(constructor)
+                     }
+                  """
+               )
             }
-         """
-      )
+         }
+      }
 
-      File(packageDir, "DispatchWithArgs.kt").writeText(
-         """
-            package $packageName
+      File(packageDir, "ContextualEventArgs.kt").writer().use { writer ->
+         writer.write("package $packageName")
 
-            ${
-               (1..20)
-                  .map { c ->
-                     (c..20).map { a ->
-                        """
-                           operator fun <E : Event, ${(1..<c).map { "C$it, " }.joinToString("")}${(c..a).map { "A$it" }.joinToString(", ")}>
-                              Dispatcher<(${(1..<c).map { "C$it" }.joinToString(", ")}) -> E>.invoke(
-                                 eventConstructor: (${(1..<c).map { "C$it, " }.joinToString("")}${(c..a).map { "A$it" }.joinToString(", ")}) -> E,
-                                 ${(c..a).map { "arg$it: A$it" }.joinToString(", ")}
-                              )
-                           {
-                              val constructor = fun (${(1..<c).map { "context$it: C$it" }.joinToString(", ")}): E {
-                                 return eventConstructor(${(1..<c).map { "context$it, " }.joinToString("")}${(c..a).map { "arg$it" }.joinToString(", ")})
-                              }
-
-                              invoke(constructor)
-                           }
-                        """
-                     }.joinToString()
-                  }
-                  .joinToString()
+         for (p in 1..20) {
+            for (c in p..20) {
+               writer.write(
+                  """
+                     @JvmName("contextualEventArgs${p - 1}To$c")
+                     context(parent: Dispatcher<(${(1..<p) { "C$it" }}) -> E>)
+                     inline fun <E : Event, R, ${(1..c) { "C$it" }}> contextualEventArgs(
+                        ${(p..c) { "context$it: C$it" }},
+                        block: context(Dispatcher<(${(1..c) { "C$it" }}) -> E>) () -> R
+                     ): R {
+                        return context(parent.addContextualEventArgs(${(p..c) { "context$it" }})) {
+                           block()
+                        }
+                     }
+                  """
+               )
             }
-         """
-      )
+         }
+      }
 
-      File(packageDir, "ContextualEventArgs.kt").writeText(
-         """
-            package $packageName
+      File(packageDir, "ContextualEventArgsExtension.kt").writer().use { writer ->
+         writer.write("package $packageName")
 
-            ${
-               (1..20)
-                  .map { p ->
-                     (p..20).map { c ->
-                        """
-                           @JvmName("contextualEventArgs${p - 1}To$c")
-                           context(parent: Dispatcher<(${(1..<p).map { "C$it" }.joinToString(", ")}) -> E>)
-                           inline fun <E : Event, R, ${(1..c).map { "C$it" }.joinToString(", ")}> contextualEventArgs(
-                              ${(p..c).map { "context$it: C$it" }.joinToString(", ")},
-                              block: context(Dispatcher<(${(1..c).map { "C$it" }.joinToString(", ")}) -> E>) () -> R
-                           ): R {
-                              return context(parent.addContextualEventArgs(${(p..c).map { "context$it" }.joinToString(", ")})) {
-                                 block()
-                              }
-                           }
-                        """
-                     }.joinToString()
-                  }
-                  .joinToString()
+         for (p in 1..20) {
+            for (c in p..20) {
+               writer.write(
+                  """
+                     @JvmName("contextualEventArgsExtension${p - 1}To$c")
+                     inline fun <E : Event, R, ${(1..c) { "C$it" }}> Dispatcher<(${(1..<p) { "C$it" }}) -> E>.contextualEventArgs(
+                        ${(p..c) { "context$it: C$it" }},
+                        block: context(Dispatcher<(${(1..c) { "C$it" }}) -> E>) () -> R
+                     ): R {
+                        return context(addContextualEventArgs(${(p..c) { "context$it" }})) {
+                           block()
+                        }
+                     }
+                  """
+               )
             }
-         """
-      )
-
-      File(packageDir, "ContextualEventArgsExtension.kt").writeText(
-         """
-            package $packageName
-
-            ${
-               (1..20)
-                  .map { p ->
-                     (p..20).map { c ->
-                        """
-                           @JvmName("contextualEventArgsExtension${p - 1}To$c")
-                           inline fun <E : Event, R, ${(1..c).map { "C$it" }.joinToString(", ")}> Dispatcher<(${(1..<p).map { "C$it" }.joinToString(", ")}) -> E>.contextualEventArgs(
-                              ${(p..c).map { "context$it: C$it" }.joinToString(", ")},
-                              block: context(Dispatcher<(${(1..c).map { "C$it" }.joinToString(", ")}) -> E>) () -> R
-                           ): R {
-                              return context(addContextualEventArgs(${(p..c).map { "context$it" }.joinToString(", ")})) {
-                                 block()
-                              }
-                           }
-                        """
-                     }.joinToString()
-                  }
-                  .joinToString()
-            }
-         """
-      )
+         }
+      }
    }
 }
 
