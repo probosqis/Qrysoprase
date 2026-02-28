@@ -71,13 +71,15 @@ android {
    compileSdk = 35
 }
 
-tasks.register("generateEventArgUtils") {
-   val generatedSrcDir = generatedSrcDir.get().asFile
+open class GenerateEventArgUtils : DefaultTask() {
+   @get:OutputDirectory
+   val generatedSrcDir = project.layout.buildDirectory.file("generated/src").get().asFile
 
-   doFirst {
+   @TaskAction
+   fun generateUtils() {
       val packageName = "com.wcaokaze.probosqis.qrysoprase"
       val packageDir = File(
-          generatedSrcDir, packageName.replace(".", File.separator)
+         generatedSrcDir, packageName.replace(".", File.separator)
       )
 
       if (!packageDir.exists() && !packageDir.mkdirs()) {
@@ -195,8 +197,10 @@ tasks.register("generateEventArgUtils") {
    }
 }
 
+tasks.register<GenerateEventArgUtils>("generateEventArgUtils")
+
 tasks.configureEach {
-   if (name.contains("compileKotlin")) {
+   if (name.contains("compile") && name.contains("Kotlin")) {
       dependsOn("generateEventArgUtils")
    }
 }
