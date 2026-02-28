@@ -31,13 +31,23 @@ open class GenerateEventArgUtils : DefaultTask() {
       val packageName = "com.wcaokaze.probosqis.qrysoprase"
       val packageDir = File(outputDir, packageName.replace(".", File.separator))
 
+      createPackageDir(packageDir)
+      generateAddContextualEventArgs(packageDir, packageName)
+      generateDispatchWithArgs(packageDir, packageName)
+      generateContextualEventArgs(packageDir, packageName)
+      generateContextualEventArgsExtension(packageDir, packageName)
+   }
+
+   private fun createPackageDir(packageDir: File) {
       if (!packageDir.exists() && !packageDir.mkdirs()) {
          throw GradleException("can not generate source dir: $packageDir")
       }
+   }
 
-      operator fun IntRange.invoke(separator: String = ", ", mapper: (Int) -> String)
-          = joinToString(separator) { mapper(it) }
-
+   private fun generateAddContextualEventArgs(
+      packageDir: File,
+      packageName: String
+   ) {
       File(packageDir, "AddContextualEventArgs.kt").writer().use { writer ->
          writer.write(
             """
@@ -73,7 +83,9 @@ open class GenerateEventArgUtils : DefaultTask() {
             }
          }
       }
+   }
 
+   private fun generateDispatchWithArgs(packageDir: File, packageName: String) {
       File(packageDir, "DispatchWithArgs.kt").writer().use { writer ->
          writer.write("package $packageName")
 
@@ -98,7 +110,9 @@ open class GenerateEventArgUtils : DefaultTask() {
             }
          }
       }
+   }
 
+   private fun generateContextualEventArgs(packageDir: File, packageName: String) {
       File(packageDir, "ContextualEventArgs.kt").writer().use { writer ->
          writer.write("package $packageName")
 
@@ -121,7 +135,12 @@ open class GenerateEventArgUtils : DefaultTask() {
             }
          }
       }
+   }
 
+   private fun generateContextualEventArgsExtension(
+      packageDir: File,
+      packageName: String
+   ) {
       File(packageDir, "ContextualEventArgsExtension.kt").writer().use { writer ->
          writer.write("package $packageName")
 
@@ -144,4 +163,9 @@ open class GenerateEventArgUtils : DefaultTask() {
          }
       }
    }
+
+   private operator fun IntRange.invoke(
+      separator: String = ", ",
+      mapper: (Int) -> String
+   ) = joinToString(separator) { mapper(it) }
 }
