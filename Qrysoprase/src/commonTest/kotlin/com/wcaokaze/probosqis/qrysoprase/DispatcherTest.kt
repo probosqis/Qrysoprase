@@ -93,6 +93,47 @@ class DispatcherTest {
    }
 
    @Test
+   fun dispatch_with20Args() {
+      data class EventImpl(
+         val param1: Int,
+         val param2: Int,
+         val param3: String,
+         val param4: String,
+         val param5: Int,
+         val param6: String,
+         val param7: String,
+         val param8: String,
+         val param9: String,
+         val param10: Int,
+         val param11: Unit,
+         val param12: Int,
+         val param13: String,
+         val param14: String,
+         val param15: Int,
+         val param16: Int,
+         val param17: Int,
+         val param18: Int,
+         val param19: Int,
+         val param20: String
+      ) : Event
+
+      var receivedEvent: EventImpl? = null
+
+      val dispatcher = Dispatcher { event: EventImpl ->
+         receivedEvent = event
+      }
+
+      val dispatcher10 = dispatcher.addContextualEventArgs(1, 2, "3", "4", 5, "6", "7", "8", "9", 10)
+
+      dispatcher10(::EventImpl, Unit, 12, "13", "14", 15, 16, 17, 18, 19, "20")
+
+      assertEquals(
+         EventImpl(1, 2, "3", "4", 5, "6", "7", "8", "9", 10, Unit, 12, "13", "14", 15, 16, 17, 18, 19, "20"),
+         receivedEvent
+      )
+   }
+
+   @Test
    fun contextualEventArgs_addContextualEventArgs() {
       data class EventImpl(val i: Int) : Event
 
@@ -111,6 +152,48 @@ class DispatcherTest {
       assertEquals(
          listOf(0, 1),
          receivedEvents.map { it.i }
+      )
+   }
+
+   @Test
+   fun contextualEventArgs_add20ContextualEventArgs() {
+      data class EventImpl(
+         val param1: Int,
+         val param2: Int,
+         val param3: String,
+         val param4: String,
+         val param5: Int,
+         val param6: String,
+         val param7: String,
+         val param8: String,
+         val param9: String,
+         val param10: Int,
+         val param11: Unit,
+         val param12: Int,
+         val param13: String,
+         val param14: String,
+         val param15: Int,
+         val param16: Int,
+         val param17: Int,
+         val param18: Int,
+         val param19: Int,
+         val param20: String
+      ) : Event
+
+      var receivedEvent: EventImpl? = null
+
+      val dispatcher = Dispatcher { event: EventImpl ->
+         receivedEvent = event
+      }
+
+      val dispatcher10 = dispatcher.addContextualEventArgs(1, 2, "3", "4", 5, "6", "7", "8", "9", 10)
+      val dispatcher20 = dispatcher10.addContextualEventArgs(Unit, 12, "13", "14", 15, 16, 17, 18, 19, "20")
+
+      dispatcher20(::EventImpl)
+
+      assertEquals(
+         EventImpl(1, 2, "3", "4", 5, "6", "7", "8", "9", 10, Unit, 12, "13", "14", 15, 16, 17, 18, 19, "20"),
+         receivedEvent
       )
    }
 
@@ -146,6 +229,61 @@ class DispatcherTest {
    }
 
    @Test
+   fun contextualEventArgs_20ContextualEventArgsBlock() {
+      data class EventImpl(
+         val param1: Int,
+         val param2: Int,
+         val param3: String,
+         val param4: String,
+         val param5: Int,
+         val param6: String,
+         val param7: String,
+         val param8: String,
+         val param9: String,
+         val param10: Int,
+         val param11: Unit,
+         val param12: Int,
+         val param13: String,
+         val param14: String,
+         val param15: Int,
+         val param16: Int,
+         val param17: Int,
+         val param18: Int,
+         val param19: Int,
+         val param20: String
+      ) : Event
+
+      var receivedEvent: EventImpl? = null
+
+      val dispatcher = Dispatcher { event: EventImpl ->
+         receivedEvent = event
+      }
+
+      context(dispatcher: Dispatcher<(Int, Int, String, String, Int, String, String, String, String, Int, Unit, Int, String, String, Int, Int, Int, Int, Int, String) -> EventImpl>)
+      fun dispatchEventImpl() {
+         dispatcher(::EventImpl)
+      }
+
+      context(dispatcher: Dispatcher<(Int, Int, String, String, Int, String, String, String, String, Int) -> EventImpl>)
+      fun dispatchEventIntermediate() {
+         contextualEventArgs(Unit, 12, "13", "14", 15, 16, 17, 18, 19, "20") {
+            dispatchEventImpl()
+         }
+      }
+
+      context(dispatcher) {
+         contextualEventArgs(1, 2, "3", "4", 5, "6", "7", "8", "9", 10) {
+            dispatchEventIntermediate()
+         }
+      }
+
+      assertEquals(
+         EventImpl(1, 2, "3", "4", 5, "6", "7", "8", "9", 10, Unit, 12, "13", "14", 15, 16, 17, 18, 19, "20"),
+         receivedEvent
+      )
+   }
+
+   @Test
    fun contextualEventArgs_contextualEventArgsExtensionFunction() {
       data class EventImpl(val i: Int) : Event
 
@@ -171,6 +309,59 @@ class DispatcherTest {
       assertEquals(
          listOf(0, 1),
          receivedEvents.map { it.i }
+      )
+   }
+
+   @Test
+   fun contextualEventArgs_20contextualEventArgsExtensionFunction() {
+      data class EventImpl(
+         val param1: Int,
+         val param2: Int,
+         val param3: String,
+         val param4: String,
+         val param5: Int,
+         val param6: String,
+         val param7: String,
+         val param8: String,
+         val param9: String,
+         val param10: Int,
+         val param11: Unit,
+         val param12: Int,
+         val param13: String,
+         val param14: String,
+         val param15: Int,
+         val param16: Int,
+         val param17: Int,
+         val param18: Int,
+         val param19: Int,
+         val param20: String
+      ) : Event
+
+      var receivedEvent: EventImpl? = null
+
+      val dispatcher = Dispatcher { event: EventImpl ->
+         receivedEvent = event
+      }
+
+      context(dispatcher: Dispatcher<(Int, Int, String, String, Int, String, String, String, String, Int, Unit, Int, String, String, Int, Int, Int, Int, Int, String) -> EventImpl>)
+      fun dispatchEventImpl() {
+         dispatcher(::EventImpl)
+      }
+
+      context(dispatcher: Dispatcher<(Int, Int, String, String, Int, String, String, String, String, Int) -> EventImpl>)
+      fun dispatchEventIntermediate() {
+         dispatcher.contextualEventArgs(Unit, 12, "13", "14", 15, 16, 17, 18, 19, "20") {
+            dispatchEventImpl()
+         }
+      }
+
+      dispatcher.contextualEventArgs(1, 2, "3", "4", 5, "6", "7", "8", "9", 10) {
+         dispatchEventIntermediate()
+      }
+
+      assertEquals(
+         EventImpl(1, 2, "3", "4", 5, "6", "7", "8", "9", 10, Unit, 12, "13", "14", 15, 16, 17, 18, 19, "20"),
+         receivedEvent
       )
    }
 
